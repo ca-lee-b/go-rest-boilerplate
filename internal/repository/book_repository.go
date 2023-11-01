@@ -36,6 +36,20 @@ func (b *BookRepo) GetBookByIsbn(isbn string) *models.Book {
 	return book
 }
 
+func (b *BookRepo) UpdateBook(isbn string, book *models.Book) error {
+	result := b.db.Model(&models.Book{}).Where("isbn = ?", isbn).Updates(models.Book{
+		Isbn:   book.Isbn,
+		Title:  book.Title,
+		Author: book.Author,
+		Price:  book.Price,
+	})
+	if result.Error != nil {
+		return result.Error
+	}
+
+	return nil
+}
+
 func (b *BookRepo) CreateBook(book *models.Book) error {
 	result := b.db.Create(book)
 	if result.Error != nil {

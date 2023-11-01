@@ -29,6 +29,7 @@ func (a *Api) initializeRoutes() {
 	a.server.GET("/books", a.bookHandler.GetAllBooks)
 	a.server.GET("/books/:id", a.bookHandler.GetBookByIsbn)
 	a.server.POST("/books", a.bookHandler.CreateBook)
+	a.server.POST("/books/:id", a.bookHandler.UpdateBook)
 }
 
 func (a *Api) Listen(port int) error {

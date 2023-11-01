@@ -42,6 +42,31 @@ func (h *BookHandler) GetBookByIsbn(c echo.Context) error {
 	return c.JSON(http.StatusOK, book)
 }
 
+func (h *BookHandler) UpdateBook(c echo.Context) error {
+	id := c.Param("id")
+	if id == "" {
+		return c.String(http.StatusBadRequest, "Bad Request")
+	}
+
+	bookExists := h.BookRepository.GetBookByIsbn(id)
+	if bookExists == nil {
+		return c.String(http.StatusNotFound, "Not Found")
+	}
+
+	var book models.Book
+	err := c.Bind(&book)
+	if err != nil {
+		return c.String(http.StatusBadRequest, "Bad Request")
+	}
+
+	err = h.BookRepository.UpdateBook(id, &book)
+	if err != nil {
+		return c.String(http.StatusInternalServerError, "Internal Server Error")
+	}
+
+	return c.String(http.StatusCreated, "Success")
+}
+
 func (h *BookHandler) CreateBook(c echo.Context) error {
 	var book models.Book
 
