@@ -1,9 +1,10 @@
 package handlers
 
 import (
-	"boilerplate/internal/models"
-	"boilerplate/internal/repository"
 	"net/http"
+
+	"github.com/ca-lee-b/go-rest-boilerplate/internal/models"
+	"github.com/ca-lee-b/go-rest-boilerplate/internal/repository"
 
 	"github.com/labstack/echo/v4"
 )

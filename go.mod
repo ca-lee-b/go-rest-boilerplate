@@ -1,4 +1,4 @@
-module boilerplate
+module github.com/ca-lee-b/go-rest-boilerplate
 
 go 1.21.0
 

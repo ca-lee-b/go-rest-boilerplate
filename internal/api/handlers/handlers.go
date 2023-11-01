@@ -1,8 +1,9 @@
 package handlers
 
 import (
-	"boilerplate/internal/repository"
 	"log/slog"
+
+	"github.com/ca-lee-b/go-rest-boilerplate/internal/repository"
 )
 
 type Handlers struct {

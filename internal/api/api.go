@@ -1,10 +1,10 @@
 package api
 
 import (
-	"boilerplate/internal/api/handlers"
 	"fmt"
 	"log/slog"
 
+	"github.com/ca-lee-b/go-rest-boilerplate/internal/api/handlers"
 	"github.com/labstack/echo/v4"
 )
 

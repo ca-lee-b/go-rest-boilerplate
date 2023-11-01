@@ -1,10 +1,10 @@
 package main
 
 import (
-	"boilerplate/internal/api"
-	"boilerplate/internal/api/handlers"
-	"boilerplate/internal/log"
-	"boilerplate/internal/repository"
+	"github.com/ca-lee-b/go-rest-boilerplate/internal/api"
+	"github.com/ca-lee-b/go-rest-boilerplate/internal/api/handlers"
+	"github.com/ca-lee-b/go-rest-boilerplate/internal/log"
+	"github.com/ca-lee-b/go-rest-boilerplate/internal/repository"
 )
 
 func main() {
