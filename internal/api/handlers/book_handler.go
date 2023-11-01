@@ -1,9 +1,9 @@
 package handlers
 
 import (
+	"boilerplate/internal/models"
+	"boilerplate/internal/repository"
 	"net/http"
-	"test/internal/models"
-	"test/internal/repository"
 
 	"github.com/labstack/echo/v4"
 )

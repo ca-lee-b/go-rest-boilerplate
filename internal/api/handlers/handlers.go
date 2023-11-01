@@ -1,8 +1,8 @@
 package handlers
 
 import (
+	"boilerplate/internal/repository"
 	"log/slog"
-	"test/internal/repository"
 )
 
 type Handlers struct {

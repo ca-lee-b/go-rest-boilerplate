@@ -1,7 +1,7 @@
 package repository
 
 import (
-	"test/internal/models"
+	"boilerplate/internal/models"
 
 	"gorm.io/gorm"
 )

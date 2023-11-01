@@ -1,9 +1,9 @@
 package api
 
 import (
+	"boilerplate/internal/api/handlers"
 	"fmt"
 	"log/slog"
-	"test/internal/api/handlers"
 
 	"github.com/labstack/echo/v4"
 )

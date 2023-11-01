@@ -1,10 +1,10 @@
 package main
 
 import (
-	"test/internal/api"
-	"test/internal/api/handlers"
-	"test/internal/log"
-	"test/internal/repository"
+	"boilerplate/internal/api"
+	"boilerplate/internal/api/handlers"
+	"boilerplate/internal/log"
+	"boilerplate/internal/repository"
 )
 
 func main() {
