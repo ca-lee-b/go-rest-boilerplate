@@ -2,7 +2,7 @@
 
 ### CRUD (with books as an example)
 
-- gorm
-- echo
+- (Echo)[https://echo.labstack.com/]
+- (GORM)[https://gorm.io/]
 - postgres
 - slog
