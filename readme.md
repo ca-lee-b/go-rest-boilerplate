@@ -1,8 +1,6 @@
 # Golang REST Api Boilerplate
 
-Book CRUD
-Authentication w/ Sessions
-Postgresql
+Book CRUD + Authentication w/ Sessions
 
 ### Dependencies
 
