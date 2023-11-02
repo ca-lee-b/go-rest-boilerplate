@@ -14,7 +14,7 @@ type Handlers struct {
 
 func New(repository *repository.Repo, logger *slog.Logger) *Handlers {
 	return &Handlers{
-		BookHandler: newBookHandler(&repository.BookRepo),
+		BookHandler: newBookHandler(&repository.BookRepository),
 		Logger:      logger,
 	}
 }

@@ -29,8 +29,10 @@ func New(handlers *handlers.Handlers, log *slog.Logger) *Api {
 
 func (a *Api) initializeRoutes() {
 	a.router.Use(middleware.Logger())
+
 	a.router.GET("/books", a.bookHandler.GetAllBooks)
 	a.router.GET("/books/:id", a.bookHandler.GetBookByIsbn)
+
 	a.router.POST("/books", a.bookHandler.CreateBook)
 	a.router.POST("/books/:id", a.bookHandler.UpdateBook)
 }

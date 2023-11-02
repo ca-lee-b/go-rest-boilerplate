@@ -6,7 +6,8 @@ import (
 )
 
 type Repo struct {
-	BookRepo BookRepo
+	BookRepo BookRepository
+	UserRepo UserRepository
 }
 
 func New() (*Repo, error) {

@@ -10,10 +10,10 @@ import (
 )
 
 type BookHandler struct {
-	BookRepository *repository.BookRepo
+	BookRepository *repository.BookRepository
 }
 
-func newBookHandler(repo *repository.BookRepo) *BookHandler {
+func newBookHandler(repo *repository.BookRepository) *BookHandler {
 	return &BookHandler{
 		BookRepository: repo,
 	}
