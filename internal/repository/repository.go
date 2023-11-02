@@ -6,8 +6,9 @@ import (
 )
 
 type Repo struct {
-	BookRepo BookRepository
-	UserRepo UserRepository
+	BookRepo    *BookRepository
+	UserRepo    *UserRepository
+	SessionRepo *SessionRepository
 }
 
 func New() (*Repo, error) {
@@ -28,6 +29,8 @@ func New() (*Repo, error) {
 	}
 
 	return &Repo{
-		BookRepo: *newBookRepository(db),
+		BookRepo:    newBookRepository(db),
+		UserRepo:    newUserRepository(db),
+		SessionRepo: newSessionRepository(db),
 	}, nil
 }

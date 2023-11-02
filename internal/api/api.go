@@ -15,6 +15,7 @@ type Api struct {
 	logger *slog.Logger
 
 	bookHandler *handlers.BookHandler
+	authHandler *handlers.AuthHandler
 }
 
 func New(handlers *handlers.Handlers, log *slog.Logger) *Api {
@@ -24,11 +25,15 @@ func New(handlers *handlers.Handlers, log *slog.Logger) *Api {
 		router:      e,
 		logger:      log,
 		bookHandler: handlers.BookHandler,
+		authHandler: handlers.AuthHandler,
 	}
 }
 
 func (a *Api) initializeRoutes() {
 	a.router.Use(middleware.Logger())
+
+	a.router.POST("/register", a.authHandler.Register)
+	a.router.POST("/login", a.authHandler.Login)
 
 	a.router.GET("/books", a.bookHandler.GetAllBooks)
 	a.router.GET("/books/:id", a.bookHandler.GetBookByIsbn)

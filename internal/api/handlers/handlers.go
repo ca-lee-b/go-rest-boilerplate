@@ -8,13 +8,15 @@ import (
 
 type Handlers struct {
 	BookHandler *BookHandler
+	AuthHandler *AuthHandler
 
 	Logger *slog.Logger
 }
 
 func New(repository *repository.Repo, logger *slog.Logger) *Handlers {
 	return &Handlers{
-		BookHandler: newBookHandler(&repository.BookRepository),
+		BookHandler: newBookHandler(repository.BookRepo),
+		AuthHandler: newAuthHandler(repository.UserRepo, repository.SessionRepo),
 		Logger:      logger,
 	}
 }
