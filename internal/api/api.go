@@ -38,8 +38,8 @@ func (a *Api) initializeRoutes() {
 	a.router.GET("/books", a.bookHandler.GetAllBooks)
 	a.router.GET("/books/:id", a.bookHandler.GetBookByIsbn)
 
-	a.router.POST("/books", a.bookHandler.CreateBook)
-	a.router.POST("/books/:id", a.bookHandler.UpdateBook)
+	a.router.POST("/books", SessionMiddleware(a.bookHandler.CreateBook))
+	a.router.POST("/books/:id", SessionMiddleware(a.bookHandler.UpdateBook))
 }
 
 func (a *Api) Listen() error {

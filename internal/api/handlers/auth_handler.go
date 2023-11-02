@@ -54,6 +54,13 @@ func (h *AuthHandler) Login(c echo.Context) error {
 	//Create session
 	session := h.SessionRepository.Create()
 
+	cookie := new(http.Cookie)
+	cookie.Name = "sid"
+	cookie.Value = session.Id
+	cookie.Expires = session.Expiry
+	cookie.HttpOnly = true
+	c.SetCookie(cookie)
+
 	return c.JSON(http.StatusOK, session)
 }
 
