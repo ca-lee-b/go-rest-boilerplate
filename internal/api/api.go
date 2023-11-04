@@ -40,6 +40,8 @@ func (a *Api) initializeRoutes() {
 
 	a.router.POST("/books", SessionMiddleware(a.bookHandler.CreateBook))
 	a.router.POST("/books/:id", SessionMiddleware(a.bookHandler.UpdateBook))
+
+	a.router.DELETE("/books/:id", SessionMiddleware(a.bookHandler.DeleteBook))
 }
 
 func (a *Api) Listen() error {

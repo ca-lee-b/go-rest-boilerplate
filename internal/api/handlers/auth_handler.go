@@ -2,6 +2,7 @@ package handlers
 
 import (
 	"net/http"
+	"time"
 
 	"github.com/ca-lee-b/go-rest-boilerplate/internal/repository"
 	"github.com/labstack/echo/v4"
@@ -58,6 +59,7 @@ func (h *AuthHandler) Login(c echo.Context) error {
 	cookie.Name = "sid"
 	cookie.Value = session.Id
 	cookie.Expires = session.Expiry
+	cookie.MaxAge = int(session.Expiry.Unix() - time.Now().Unix())
 	cookie.HttpOnly = true
 	c.SetCookie(cookie)
 

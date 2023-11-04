@@ -89,3 +89,22 @@ func (h *BookHandler) CreateBook(c echo.Context) error {
 	}
 	return c.JSON(http.StatusCreated, book)
 }
+
+func (h *BookHandler) DeleteBook(c echo.Context) error {
+	id := c.Param("id")
+	if id == "" {
+		return c.String(http.StatusBadRequest, "Bad Request")
+	}
+
+	book := h.BookRepository.GetBookByIsbn(id)
+	if book == nil {
+		return c.String(http.StatusNotFound, "Not Found")
+	}
+
+	err := h.BookRepository.DeleteBook(id)
+	if err != nil {
+		return c.String(http.StatusInternalServerError, "Internal Server Error")
+	}
+
+	return c.String(http.StatusOK, "Success")
+}

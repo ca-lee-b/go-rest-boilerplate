@@ -14,18 +14,18 @@ func main() {
 		panic("Could not load env file")
 	}
 
-	log := log.New()
+	logger := log.New()
 
 	repositories, err := repository.New()
 	if err != nil {
-		log.Error("Failed to connect to database")
+		logger.Error("Failed to connect to database")
 	}
 
-	handlers := handlers.New(repositories, log)
-	api := api.New(handlers, log)
+	handlers := handlers.New(repositories, logger)
+	api := api.New(handlers, logger)
 
 	err = api.Listen()
 	if err != nil {
-		log.Error("Failed to start server: %v", err)
+		logger.Error("Failed to start server: %v", err)
 	}
 }

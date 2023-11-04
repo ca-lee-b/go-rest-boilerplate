@@ -58,3 +58,12 @@ func (b *BookRepository) CreateBook(book *models.Book) error {
 
 	return nil
 }
+
+func (b *BookRepository) DeleteBook(isbn string) error {
+	result := b.db.Delete(&models.Book{}, isbn)
+	if result.Error != nil {
+		return result.Error
+	}
+
+	return nil
+}
